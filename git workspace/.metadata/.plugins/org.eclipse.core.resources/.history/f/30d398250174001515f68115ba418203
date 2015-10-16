@@ -1,0 +1,5 @@
+package bankonet.dao;
+
+public class DaoFactoryMySQL implements DaoFactory{
+
+}

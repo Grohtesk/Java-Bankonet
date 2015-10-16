@@ -1,0 +1,11 @@
+package bankonet.dao;
+
+public class DaoFactoryMySQL implements DaoFactory{
+	
+	@Override
+	public DaoFactory getDaoFactory() {
+		// TODO Auto-generated method stub
+		return new DaoFactoryMySQL();
+	}
+
+}

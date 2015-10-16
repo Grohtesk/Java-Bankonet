@@ -1,0 +1,6 @@
+package bankonet.dao;
+
+public interface DaoFactory {
+	CompteDao getDaoCompte();
+	ClientDao getDaoClient();
+}

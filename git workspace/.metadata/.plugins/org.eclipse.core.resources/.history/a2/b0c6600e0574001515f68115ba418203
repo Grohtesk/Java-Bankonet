@@ -1,0 +1,5 @@
+package bankonet.dao.client;
+
+public class ClientDaoMySQL implements ClientDao {
+
+}

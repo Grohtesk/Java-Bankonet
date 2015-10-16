@@ -1,0 +1,20 @@
+package bankonet.dao;
+
+import bankonet.dao.client.ClientDao;
+import bankonet.dao.compte.CompteDao;
+
+public class DaoFactoryMySQL implements DaoFactory{
+
+	@Override
+	public CompteDao getDaoCompte() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ClientDao getDaoClient() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

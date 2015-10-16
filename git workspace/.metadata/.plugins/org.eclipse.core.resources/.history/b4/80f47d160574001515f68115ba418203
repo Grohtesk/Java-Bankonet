@@ -1,0 +1,13 @@
+package bankonet.dao.client;
+
+import java.util.List;
+
+import com.bankonet.Client;
+import com.bankonet.Compte;
+
+public interface ClientDao {
+	Client getClient(String identifiant);
+	List<Client> getClients();
+	void removeClient();
+	void saveClient();
+}

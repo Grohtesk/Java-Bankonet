@@ -18,7 +18,7 @@ public class Client {
 	private Map<String,Compte> listeComptes;
 	private int nbCompteCourrant;
 	private int nbCompteEpargne;
-	private final static String CLIENTPROPERTIESURL="../bankonet-lib/client.properties";
+	public final static String CLIENTPROPERTIESURL="../bankonet-lib/client.properties";
 	
 	public Client(String identifiant, String nom, String prenom, String password) {
 		super();
@@ -77,54 +77,6 @@ public class Client {
 		this.nbCompteEpargne = nbCompteEpargne;
 	}
 
-
-
-	public void save() {
-		
-		Properties prop = new Properties();
-		OutputStream output = null;
-
-		try {
-			// import existing file
-			FileInputStream in = new FileInputStream(CLIENTPROPERTIESURL);
-			prop.load(in);
-			in.close();
-			
-			output = new FileOutputStream(CLIENTPROPERTIESURL);
-			
-			// set the properties value
-			prop.setProperty(this.identifiant, this.concatClient());
-
-			// save properties to project root folder
-			prop.store(output, null);
-
-		} catch (IOException io) {
-			
-			try {
-				output = new FileOutputStream(CLIENTPROPERTIESURL);
-	
-				// set the properties value
-				prop.setProperty(this.identifiant, this.concatClient());
-	
-				// save properties to project root folder
-				prop.store(output, null);
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
-			// TODO stocker les comptes
-		} finally {
-			if (output != null) {
-				try {
-					output.close();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-
-		}
-	}
 	
 	
 	public String concatClient() {

@@ -1,0 +1,10 @@
+package bankonet.dao.compte;
+
+import java.util.List;
+
+import com.bankonet.Client;
+import com.bankonet.Compte;
+
+public class CompteDaoMySQL implements CompteDao {
+
+}

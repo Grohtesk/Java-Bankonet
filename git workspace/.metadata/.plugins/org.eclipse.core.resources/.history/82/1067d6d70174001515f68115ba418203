@@ -1,0 +1,7 @@
+package bankonet.dao.client;
+
+import com.bankonet.Compte;
+
+public interface CompteDao {
+	Compte getComtpe(String numero);
+}

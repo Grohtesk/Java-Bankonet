@@ -1,0 +1,11 @@
+package bankonet.dao.client;
+
+import java.util.List;
+
+import com.bankonet.Client;
+
+public class ClientDaoFile implements ClientDao {
+
+	
+
+}
