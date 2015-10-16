@@ -1,0 +1,29 @@
+package bankonet.metier;
+
+import bankonet.dao.client.ClientDao;
+
+public class ClientService implements ClientServiceInterface {
+	
+	public ClientService(ClientDao daoClient) {
+		
+	}
+
+	@Override
+	public void menu() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void ajouterCompte() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void creerClient(String... strings) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

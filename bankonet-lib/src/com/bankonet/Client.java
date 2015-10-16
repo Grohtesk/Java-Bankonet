@@ -77,24 +77,6 @@ public class Client {
 		this.nbCompteEpargne = nbCompteEpargne;
 	}
 
-	
-	
-	public String concatClient() {
-		String comptes="";
-		Iterator it = listeComptes.entrySet().iterator();
-	    while (it.hasNext()) {
-	        Map.Entry<String,Compte> pair = (Map.Entry<String,Compte>)it.next();
-	        comptes+=pair.getValue().getNumero()+",";
-	        it.remove(); // avoids a ConcurrentModificationException
-	    }
-	    comptes=comptes.substring(0, comptes.length()-1);
-		String str="identifiant:" + identifiant + "&nom:" + nom + "&prenom:" + prenom + "&password:" + password	+ "&listeComptes:" + comptes;
-		
-		
-		return str;
-	}
-
-
 	public String getPassword() {
 		return password;
 	}
@@ -111,72 +93,6 @@ public class Client {
 	public String toString() {
 		return nom.toUpperCase() + " " + prenom + ", identifiant : " + identifiant	+ ". comptes courants : " + nbCompteCourrant+", comptes epargne : "+nbCompteEpargne;
 	}
-	
-	public static HashMap<String,Client> retriveClients() {
-		HashMap<String,Client> map=new HashMap<String,Client>();
-		
-		// import existing file
-		Properties prop = new Properties();
-		try {
-			FileInputStream in = new FileInputStream(CLIENTPROPERTIESURL);
-			prop.load(in);
-			in.close();
-			
-			
-			Iterator it = prop.entrySet().iterator();
-		    while (it.hasNext()) {
-		    	HashMap<String,String> clientMap=new HashMap<String,String>();
-		        Map.Entry<String,String> entry = (Map.Entry<String,String>)it.next();
-		        String clientString=entry.getValue();
-		        String[] clientArray=clientString.split("&");
-		        
-		        for (int i = 0; i < clientArray.length; i++) {
-		        	String[] a=clientArray[i].split(":");
-					clientMap.put(a[0], a[1]);
-				}
-		        String idendifiant=clientMap.get("identifiant");
-		        String nom=clientMap.get("nom");
-		        String prenom=clientMap.get("prenom");
-		        String password=clientMap.get("password");
-		        String comptes=clientMap.get("listeComptes");
-		        
-		        HashMap<String,Compte> compteMap=Compte.retriveComptes();
-		        
-		        Client client=new Client(idendifiant,nom,prenom,password);
-		        
-		        String[] comptetArray=comptes.split(",");
-		        
-		        for (int i = 0; i < comptetArray.length; i++) {
-		        	client.addCompte(compteMap.get(comptetArray[i]));
-				}
-		        
-		        map.put(idendifiant, client);
-		        
-		        it.remove(); // avoids a ConcurrentModificationException
-		    }
-		} catch (IOException e) {
-			// TODO: handle exception
-		}
-		
-		
-		return map;
-	}
-	
-	public static Client connect(String login, String password) throws ClientNonTrouveException {
-		// TODO Auto-generated method stub
-		HashMap<String,Client> mapClient=retriveClients();
-		
-		if(mapClient.containsKey(login)){
-			Client client=mapClient.get(login);
-			if(client.getPassword().equals(password)){
-				return client;
-			}else{
-				throw new ClientNonTrouveException("Connexion impossible");
-			}
-		}else throw new ClientNonTrouveException();
-	}
-
-
 
 	public void consulterSoldes() {
 		// TODO Auto-generated method stub

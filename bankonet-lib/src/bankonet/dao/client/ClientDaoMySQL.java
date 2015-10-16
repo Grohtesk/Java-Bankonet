@@ -7,12 +7,6 @@ import com.bankonet.Client;
 public class ClientDaoMySQL implements ClientDao {
 
 	@Override
-	public void setClient(Client client) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	public Client getClient(String identifiant) {
 		// TODO Auto-generated method stub
 		return null;

@@ -1,0 +1,23 @@
+package bankonet.metier;
+
+public class ClientService implements ClientServiceInterface {
+
+	@Override
+	public void menu() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void ajouterCompte() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void creerClient(String... strings) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

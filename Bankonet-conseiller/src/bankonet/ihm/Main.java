@@ -1,5 +1,6 @@
 package bankonet.ihm;
 import java.awt.List;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -11,6 +12,7 @@ import com.bankonet.CompteCourant;
 import bankonet.dao.DaoFactory;
 import bankonet.dao.DaoFactoryMySQL;
 import bankonet.dao.client.ClientDao;
+import bankonet.metier.ClientService;
 
 import java.util.Scanner;
 
@@ -18,15 +20,17 @@ public class Main {
 	
 
 	static DaoFactory factory;
+	static ClientService serviceClient;
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
 		factory=new DaoFactoryMySQL();
+		ClientService serviceClient=new ClientService(factory.getDaoClient());
+		
 		menu();
-		
-		List clients= new List();
-		
 
+		
 	}
 	
 	public static void menu() {
@@ -63,21 +67,17 @@ public class Main {
 
 	private static void listeClient() {
 		System.out.println("***** Liste des clients *****");
-		Map<String,Client> mapClient=Client.retriveClients();
 		
-		Iterator<Entry<String, Client>> it = mapClient.entrySet().iterator();
-	    while (it.hasNext()) {
-	    	Map.Entry<String,Client> entry = (Entry<String, Client>) it.next();
-	    	Client client=entry.getValue();
+		ArrayList<Client> listClient=serviceClient.getClients();
+		
+		for (Client client : listClient) {
 	    	System.out.println(client);
-	    }
+		}
 		menu();
 	}
 
 	private static void ouvrirCompteCourant() {
 		// TODO Auto-generated method stub
-		
-		ClientDao dao=factory.getDaoClient();
 		
 		System.out.println("***** Ouverture de compte courrant *****");
 		
@@ -92,17 +92,12 @@ public class Main {
         String identifiant=sc.nextLine();
 
         String password="secret";
-        
-        Client client=new Client(identifiant,nom,prenom,password);
-        String compteIdentifiant="["+nom+"]_["+prenom+"]_COURANT_1";
-        Compte compte=new CompteCourant(compteIdentifiant, compteIdentifiant, 0, 0);
-        client.addCompte(compte);
-        
-        dao.save(client);
-        compte.save();
+                
+        if(serviceClient.ajouterClient(identifiant,nom,prenom,password)){
+        	System.out.println("Le client a bien été créé");
+        }
         
         sc.close();
-        
 		menu();
 	}
 

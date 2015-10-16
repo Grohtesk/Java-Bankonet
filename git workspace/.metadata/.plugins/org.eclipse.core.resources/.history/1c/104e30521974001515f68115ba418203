@@ -1,0 +1,47 @@
+package bankonet.metier;
+
+import com.bankonet.Client;
+import com.bankonet.Compte;
+import com.bankonet.CompteCourant;
+
+import bankonet.dao.client.ClientDao;
+
+public class ClientService implements ClientServiceInterface {
+	
+	private ClientDao daoClient;
+	
+	public ClientService(ClientDao daoClient) {
+		this.daoClient=daoClient;
+	}
+
+	@Override
+	public void menu() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void ajouterCompte() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void creerClient(String... strings) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean ajouterClient(String identifiant,String nom,String prenom,String password) {
+		
+		Client client=new Client(identifiant,nom,prenom,password);
+		String compteIdentifiant="["+nom+"]_["+prenom+"]_COURANT_1";
+		Compte compte=new CompteCourant(compteIdentifiant, compteIdentifiant, 0, 0);
+		client.addCompte(compte);
+		
+		
+
+		return false;
+	}
+
+}
