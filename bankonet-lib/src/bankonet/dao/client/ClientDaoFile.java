@@ -15,6 +15,8 @@ import java.util.Properties;
 import com.bankonet.Client;
 import com.bankonet.Compte;
 
+import bankonet.dao.compte.CompteDaoFile;
+
 public class ClientDaoFile implements ClientDao {
 
 	@Override
@@ -53,15 +55,14 @@ public class ClientDaoFile implements ClientDao {
 		        String prenom=clientMap.get("prenom");
 		        String password=clientMap.get("password");
 		        String comptes=clientMap.get("listeComptes");
-		        
-		        HashMap<String,Compte> compteMap=Compte.retriveComptes();
-		        
+
+		        CompteDaoFile compteDao=new CompteDaoFile();
 		        Client client=new Client(idendifiant,nom,prenom,password);
 		        
 		        String[] comptetArray=comptes.split(",");
 		        
 		        for (int i = 0; i < comptetArray.length; i++) {
-		        	client.addCompte(compteMap.get(comptetArray[i]));
+		        	client.addCompte(compteDao.getCompte(comptetArray[i]));
 				}
 		        
 		        list.add(client);

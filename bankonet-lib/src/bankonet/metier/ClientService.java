@@ -20,7 +20,7 @@ public class ClientService {
 		this.daoClient=daoClient;
 	}
 
-	public boolean ajouterClient(String identifiant,String nom,String prenom,String password) {
+	public Client ajouterClient(String identifiant,String nom,String prenom,String password) {
 		
 		Client client=new Client(identifiant,nom,prenom,password);
 		String compteIdentifiant="["+nom+"]_["+prenom+"]_COURANT_1";
@@ -28,8 +28,8 @@ public class ClientService {
 		client.addCompte(compte);
 		
 		this.daoClient.save(client);
-
-		return false;
+		
+		return client;
 	}
 
 	public ArrayList<Client> getClients() {

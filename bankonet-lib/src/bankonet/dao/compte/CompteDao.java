@@ -6,8 +6,8 @@ import com.bankonet.Client;
 import com.bankonet.Compte;
 
 public interface CompteDao {
-	Compte getComtpe(String numero);
-	List<Compte> getCompte(Client client);
-	void removeCompte(Compte compte);
+	Compte getCompte(String numero);
+	List<Compte> getAll();
+	void remove(Compte compte);
 	void save(Compte compte);
 }

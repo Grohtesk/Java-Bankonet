@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="com.bankonet.Compte"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="bankonet.dao.client.CompteDaoFile"/>
+<fullyQualifiedTypeName name="bankonet.dao.client.CompteDao"/>
+<fullyQualifiedTypeName name="bankonet.dao.compte.CompteDaoMySQL"/>
+<fullyQualifiedTypeName name="bankonet.dao.client.ClientDaoMySQL"/>
+<fullyQualifiedTypeName name="bankonet.dao.DaoFactory"/>
+<fullyQualifiedTypeName name="bankonet.dao.DaoFactoryMySQL"/>
+<fullyQualifiedTypeName name="java.awt.List"/>
+<fullyQualifiedTypeName name="java.util.Stack"/>
+<fullyQualifiedTypeName name="bankonet.dao.client.ClientDao"/>
+<fullyQualifiedTypeName name="bankonet.metier.ClientService"/>
+<fullyQualifiedTypeName name="com.bankonet.Client"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+</qualifiedTypeNameHistroy>

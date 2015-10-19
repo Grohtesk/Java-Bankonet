@@ -7,20 +7,15 @@ import com.bankonet.Compte;
 
 public class CompteDaoMySQL implements CompteDao {
 
+
 	@Override
-	public Compte getComtpe(String numero) {
+	public List<Compte> getAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<Compte> getCompte(Client client) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void removeCompte(Compte compte) {
+	public void remove(Compte compte) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -30,5 +25,12 @@ public class CompteDaoMySQL implements CompteDao {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public Compte getCompte(String numero) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 }

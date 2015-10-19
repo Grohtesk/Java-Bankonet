@@ -1,14 +1,9 @@
 package com.bankonet;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Properties;
 
 public class Client {
 	private String identifiant;
@@ -81,13 +76,9 @@ public class Client {
 		return password;
 	}
 
-
-
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
-
 
 	@Override
 	public String toString() {

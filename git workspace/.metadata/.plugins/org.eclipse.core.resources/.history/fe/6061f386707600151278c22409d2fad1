@@ -1,0 +1,45 @@
+package bankonet.dao.client;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.util.List;
+
+import com.bankonet.Client;
+
+public class ClientDaoMySQL implements ClientDao {
+	
+	public ClientDaoMySQL() {
+		// TODO Auto-generated constructor stub
+		Class.forName("com.mysql.jdbc.Driver");
+		String url="http://localhost:8080";
+		Connection connection DriverManager.getConnection(url);
+	}
+	
+
+	@Override
+	public Client getClient(String identifiant) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Client> getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void remove(Client client) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void save(Client client) {
+		// TODO Auto-generated method stub
+		
+		
+		
+	}
+
+}
