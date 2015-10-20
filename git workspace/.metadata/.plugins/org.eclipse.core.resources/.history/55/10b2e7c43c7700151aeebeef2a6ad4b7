@@ -1,0 +1,33 @@
+package bankonet.metier.client;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+
+import com.bankonet.Client;
+
+import bankonet.dao.client.ClientDao;
+import bankonet.dao.client.ClientDaoJpa;
+
+public class InitService {
+	
+	EntityManager em;
+	ClientDao clientDao;
+	
+	public InitService(ClientDaoJpa clientDao) {
+		this.clientDao = clientDao;
+	}
+
+	public void init() {
+		Client client1=new Client("bob","Bradford","Bob","bob");
+		Client client2=new Client("jim","Jerk","Jimmy","jim");
+		Client client3=new Client("sal","Seppadboll","Sally","sally");
+		Client client4=new Client("rob","Reznikov","Robbert","bob");
+		Client client5=new Client("bob","Bradford","Bob","bob");
+
+		clientDao.save(client1);
+		clientDao.save(client2);
+		clientDao.save(client3);
+		clientDao.save(client4);
+		clientDao.save(client5);
+	}
+}

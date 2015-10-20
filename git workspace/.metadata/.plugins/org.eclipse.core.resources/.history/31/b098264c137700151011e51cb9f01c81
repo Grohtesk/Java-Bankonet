@@ -1,0 +1,26 @@
+package app;
+
+import java.util.Arrays;
+import java.util.List;
+
+import command.ListeClientsCommand;
+import command.IhmCommand;
+
+public class ConsoleApp {
+
+	private List<IhmCommand> commands=Arrays.asList(new ListeClientsCommand());
+	
+	public static void main(String[] args) {
+		ConsoleApp app=new ConsoleApp();
+		app.menu();
+	}
+
+	private void menu() {
+		System.out.println("****** APPLICATION CONSEILLER BANCAIRE ******");
+		
+		for (IhmCommand ihmCommand : commands) {
+			System.out.println(ihmCommand.getInt()+" : "+ihmCommand.getLibelle());
+		}
+		System.out.println("Veuillez choisir une option");
+	}
+}

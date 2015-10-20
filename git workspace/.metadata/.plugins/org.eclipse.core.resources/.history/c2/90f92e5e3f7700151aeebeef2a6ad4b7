@@ -1,0 +1,28 @@
+package command;
+
+import bankonet.metier.ClientService;
+
+public class ListeClientsCommand extends IhmCommand {
+	
+	private ClientService clientService;
+
+	@Override
+	public int getInt() {
+		// TODO Auto-generated method stub
+		return 2;
+	}
+
+	@Override
+	public String getLibelle() {
+		// TODO Auto-generated method stub
+		return "Affiche la liste des clients";
+	}
+
+	@Override
+	public void execute() {
+		
+	}
+	
+	
+
+}

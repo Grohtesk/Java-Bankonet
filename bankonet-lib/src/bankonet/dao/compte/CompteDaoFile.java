@@ -1,7 +1,9 @@
 package bankonet.dao.compte;
 
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -63,10 +65,51 @@ public class CompteDaoFile implements CompteDao {
 		
 	}
 
-	@Override
 	public void save(Compte compte) {
 		// TODO Auto-generated method stub
-		
+		Properties prop = new Properties();
+		OutputStream output = null;
+
+		try {
+			// import existing file
+			FileInputStream in = new FileInputStream(Compte.COMPTE_PROPERTIES_URL);
+			prop.load(in);
+			in.close();
+			
+			output = new FileOutputStream(Compte.COMPTE_PROPERTIES_URL);
+			
+			// set the properties value
+			prop.setProperty(compte.getNumero(), compte.concatCompte());
+
+			// save properties to project root folder
+			prop.store(output, null);
+
+		} catch (IOException io) {
+			
+			try {
+				output = new FileOutputStream(Compte.COMPTE_PROPERTIES_URL);
+	
+				// set the properties value
+				prop.setProperty(compte.getNumero(), compte.concatCompte());
+	
+				// save properties to project root folder
+				prop.store(output, null);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			// TODO stocker les comptes
+		} finally {
+			if (output != null) {
+				try {
+					output.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+
+		}
 	}
 
 	

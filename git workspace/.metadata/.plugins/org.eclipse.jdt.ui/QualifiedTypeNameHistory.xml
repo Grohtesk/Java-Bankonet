@@ -1,18 +1,36 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="com.bankonet.Compte"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="bankonet.dao.client.CompteDaoFile"/>
 <fullyQualifiedTypeName name="bankonet.dao.client.CompteDao"/>
 <fullyQualifiedTypeName name="bankonet.dao.compte.CompteDaoMySQL"/>
 <fullyQualifiedTypeName name="bankonet.dao.client.ClientDaoMySQL"/>
 <fullyQualifiedTypeName name="bankonet.dao.DaoFactory"/>
 <fullyQualifiedTypeName name="bankonet.dao.DaoFactoryMySQL"/>
-<fullyQualifiedTypeName name="java.awt.List"/>
 <fullyQualifiedTypeName name="java.util.Stack"/>
 <fullyQualifiedTypeName name="bankonet.dao.client.ClientDao"/>
-<fullyQualifiedTypeName name="bankonet.metier.ClientService"/>
 <fullyQualifiedTypeName name="com.bankonet.Client"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="bankonet.dao.compte.CompteDaoFile"/>
+<fullyQualifiedTypeName name="java.sql.Connection"/>
+<fullyQualifiedTypeName name="java.sql.DriverManager"/>
+<fullyQualifiedTypeName name="java.lang.StringBuilder"/>
+<fullyQualifiedTypeName name="java.sql.Statement"/>
+<fullyQualifiedTypeName name="java.awt.List"/>
+<fullyQualifiedTypeName name="java.util.Arrays"/>
+<fullyQualifiedTypeName name="command.ListeClientsCommand"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="app.ConsoleApp"/>
+<fullyQualifiedTypeName name="command.OuvrirCompteCourrantCommand"/>
+<fullyQualifiedTypeName name="command.ExitCommand"/>
+<fullyQualifiedTypeName name="java.util.Collections"/>
+<fullyQualifiedTypeName name="java.util.Comparator"/>
+<fullyQualifiedTypeName name="java.util.Scanner"/>
+<fullyQualifiedTypeName name="bankonet.metier.ClientService"/>
+<fullyQualifiedTypeName name="org.hibernate.annotations.Entity"/>
+<fullyQualifiedTypeName name="javax.persistence.Entity"/>
+<fullyQualifiedTypeName name="javax.persistence.Id"/>
+<fullyQualifiedTypeName name="javax.persistence.Column"/>
+<fullyQualifiedTypeName name="javax.persistence.Table"/>
 </qualifiedTypeNameHistroy>

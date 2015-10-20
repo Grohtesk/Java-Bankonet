@@ -1,0 +1,9 @@
+package command;
+
+public class InitCommand extends IhmCommand {
+
+	public InitCommand() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

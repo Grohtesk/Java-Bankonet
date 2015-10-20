@@ -1,0 +1,14 @@
+package bankonet.metier.client;
+
+import com.bankonet.Client;
+
+public class InitService {
+
+	public void init() {
+		Client client1=new Client("bob","Bradford","Bob","bob");
+		Client client2=new Client("bob","Bradford","Bob","bob");
+		Client client3=new Client("bob","Bradford","Bob","bob");
+		Client client4=new Client("bob","Bradford","Bob","bob");
+		Client client5=new Client("bob","Bradford","Bob","bob");
+	}
+}

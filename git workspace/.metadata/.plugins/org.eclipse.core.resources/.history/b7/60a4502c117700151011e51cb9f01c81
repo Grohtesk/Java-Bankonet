@@ -1,0 +1,13 @@
+package command;
+
+public abstract class IhmCommand {
+	
+	public int getInt(){
+		return 0;
+	}
+	
+	public void execute() {
+		
+	}
+
+}

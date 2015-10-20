@@ -1,14 +1,5 @@
 package com.bankonet;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Properties;
-
 public abstract class Compte implements CompteStat {
 	
 	private String numero;
@@ -83,54 +74,7 @@ public abstract class Compte implements CompteStat {
 		this.crediter(montant);
 	}
 
-	public void save() {
-		// TODO Auto-generated method stub
-		Properties prop = new Properties();
-		OutputStream output = null;
-
-		try {
-			// import existing file
-			FileInputStream in = new FileInputStream(COMPTE_PROPERTIES_URL);
-			prop.load(in);
-			in.close();
-			
-			output = new FileOutputStream(COMPTE_PROPERTIES_URL);
-			
-			// set the properties value
-			prop.setProperty(this.numero, this.concatCompte());
-
-			// save properties to project root folder
-			prop.store(output, null);
-
-		} catch (IOException io) {
-			
-			try {
-				output = new FileOutputStream(COMPTE_PROPERTIES_URL);
-	
-				// set the properties value
-				prop.setProperty(this.numero, this.concatCompte());
-	
-				// save properties to project root folder
-				prop.store(output, null);
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
-			// TODO stocker les comptes
-		} finally {
-			if (output != null) {
-				try {
-					output.close();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-
-		}
-	}
-
-	private String concatCompte() {		
+	public String concatCompte() {		
 		return new String("numero:"+this.numero+"&intitule:"+this.intitule+"&solde:"+this.solde);
 	}
 	

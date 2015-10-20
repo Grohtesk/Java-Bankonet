@@ -5,15 +5,37 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
+
+@Entity
+@Table(name="client")
 public class Client {
+	@Id
+	@GeneratedValue
+	private int id;
+	@Column(name="identifiant",length=25)
 	private String identifiant;
+	@Column(name="nom",length=25)
 	private String nom;
+	@Column(name="prenom",length=20)
 	private String prenom;
+	@Column(name="password",length=20)
 	private String password;
+	@Transient
 	private Map<String,Compte> listeComptes;
 	private int nbCompteCourrant;
 	private int nbCompteEpargne;
 	public final static String CLIENTPROPERTIESURL="../bankonet-lib/client.properties";
+	
+	public Client() {
+		// TODO Auto-generated constructor stub
+	}
 	
 	public Client(String identifiant, String nom, String prenom, String password) {
 		super();
@@ -82,7 +104,7 @@ public class Client {
 
 	@Override
 	public String toString() {
-		return nom.toUpperCase() + " " + prenom + ", identifiant : " + identifiant	+ ". comptes courants : " + nbCompteCourrant+", comptes epargne : "+nbCompteEpargne;
+		return "Id : "+id+", Nom : "+ nom.toUpperCase() + " " + prenom + ", identifiant : " + identifiant	+ ". comptes courants : " + nbCompteCourrant+", comptes epargne : "+nbCompteEpargne;
 	}
 
 	public void consulterSoldes() {
@@ -94,6 +116,18 @@ public class Client {
 	    	Compte compte=it.next().getValue();
 	    	System.out.println(i+". Compte n°"+compte.getNumero()+" : solde="+compte.getSolde());
 	    }
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public void setIdentifiant(String identifiant) {
+		this.identifiant = identifiant;
 	}
 	
 	

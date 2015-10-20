@@ -1,0 +1,25 @@
+package command;
+
+public class ListeClientsCommand extends IhmCommand {
+
+	@Override
+	public int getInt() {
+		// TODO Auto-generated method stub
+		return 2;
+	}
+
+	@Override
+	public String getLibelle() {
+		// TODO Auto-generated method stub
+		return "Affiche la liste des clients";
+	}
+
+	@Override
+	public void execute() {
+		// TODO Auto-generated method stub
+		super.execute();
+	}
+	
+	
+
+}
