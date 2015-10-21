@@ -1,7 +1,13 @@
 package com.bankonet;
 
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+
+@Entity
+@DiscriminatorValue("C")
 public class CompteCourant extends Compte {
-	
+	@Column(name="montantDecouvertAutorise")
 	double montantDecouvertAutorise;
 	
 	public CompteCourant(){

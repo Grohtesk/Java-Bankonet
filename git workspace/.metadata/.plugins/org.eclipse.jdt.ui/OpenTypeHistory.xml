@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <typeInfoHistroy>
 <typeInfo handle="=bankonet-lib/src&lt;bankonet.dao{DaoFactory.java[DaoFactory" modifiers="513" timestamp="1444999262495"/>
-<typeInfo handle="=bankonet-lib/src&lt;bankonet.dao.client{ClientDao.java[ClientDao" modifiers="513" timestamp="1445006693529"/>
+<typeInfo handle="=bankonet-lib/src&lt;bankonet.dao.client{ClientDao.java[ClientDao" modifiers="513" timestamp="1445434061907"/>
 <typeInfo handle="=design-pattern-command/src&lt;command{IhmCommand.java[IhmCommand" modifiers="1025" timestamp="1445335134630"/>
 </typeInfoHistroy>

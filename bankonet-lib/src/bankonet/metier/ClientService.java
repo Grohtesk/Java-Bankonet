@@ -2,6 +2,7 @@ package bankonet.metier;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import com.bankonet.Client;
 import com.bankonet.ClientNonTrouveException;
@@ -23,6 +24,7 @@ public class ClientService {
 		Client client=new Client(identifiant,nom,prenom,password);
 		String compteIdentifiant="["+nom+"]_["+prenom+"]_COURANT_1";
 		Compte compte=new CompteCourant(compteIdentifiant, compteIdentifiant, 0, 0);
+		compte.setClientId(client);
 		client.addCompte(compte);
 		
 		this.daoClient.save(client);
@@ -58,5 +60,24 @@ public class ClientService {
 		}else throw new ClientNonTrouveException();
 	}
 
+	public List<Client> getClientByName(String nom) {
+		return daoClient.findByName(nom);
+	}
+
+	public List<Client> getClientByFirstname(String prenom) {
+		return daoClient.findByFirstname(prenom);
+	}
+	
+	public Client getClient(String identifiant) {
+		return daoClient.getClient(identifiant);
+	}
+
+	public void updateClient(Client client) {
+		daoClient.updateClient(client);
+	}
+
+	public void supprimerClient(String identifiant) {
+		daoClient.remove(daoClient.getClient(identifiant));
+	}
 
 }

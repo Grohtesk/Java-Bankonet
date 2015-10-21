@@ -1,0 +1,22 @@
+package command;
+
+public class RechercheClientParNomCommand extends IhmCommand {
+
+	@Override
+	public int getInt() {
+		return 4;
+	}
+
+	@Override
+	public String getLibelle() {
+		return "Rechercher une personne suivant son nom";
+	}
+
+	@Override
+	public void execute() {
+		
+		super.execute();
+	}
+
+
+}

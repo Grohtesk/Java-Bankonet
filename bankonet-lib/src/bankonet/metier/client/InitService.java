@@ -1,14 +1,11 @@
 package bankonet.metier.client;
 
-import javax.persistence.EntityManager;
-
 import com.bankonet.Client;
 
 import bankonet.dao.client.ClientDao;
 
 public class InitService {
 	
-	EntityManager em;
 	ClientDao clientDao;
 	
 	public InitService(ClientDao clientDao) {

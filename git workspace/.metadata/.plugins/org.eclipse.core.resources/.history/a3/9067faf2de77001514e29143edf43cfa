@@ -1,0 +1,14 @@
+package command;
+
+import bankonet.metier.ClientService;
+
+public class SupprimerClientCommand extends IhmCommand {
+
+	private ClientService clientService;
+
+	public SupprimerClientCommand(ClientService clientService) {
+		this.clientService = clientService;
+	}
+
+	
+}

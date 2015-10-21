@@ -1,0 +1,33 @@
+package command;
+
+import bankonet.metier.ClientService;
+
+public class SupprimerClientCommand extends IhmCommand {
+
+	private ClientService clientService;
+
+	public SupprimerClientCommand(ClientService clientService) {
+		this.clientService = clientService;
+	}
+
+	@Override
+	public int getInt() {
+		return 7;
+	}
+
+	@Override
+	public String getLibelle() {
+		return "Supprimer un client";
+	}
+
+	@Override
+	public void execute() {
+		System.out.println("Saisissez l'identifiant du client à supprimer");
+		
+		clientService.supprimerClient()
+	}
+	
+	
+
+	
+}

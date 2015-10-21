@@ -1,0 +1,9 @@
+package command;
+
+public class ajouterCompteCompteCourantCommand extends IhmCommand {
+
+	public ajouterCompteCompteCourantCommand() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

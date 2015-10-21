@@ -1,0 +1,11 @@
+package bankonet.metier;
+
+import bankonet.dao.compte.CompteDao;
+
+public class CompteService {
+
+	public CompteService(CompteDao daoCompte) {
+		// TODO Auto-generated constructor stub
+	}
+
+}

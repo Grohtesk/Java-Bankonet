@@ -9,26 +9,34 @@ import java.util.Scanner;
 import bankonet.dao.DaoFactory;
 import bankonet.dao.DaoFactoryJpa;
 import bankonet.metier.ClientService;
+import bankonet.metier.CompteService;
 import bankonet.metier.client.InitService;
 import command.*;
 
 public class ConsoleApp {
-
+	
+	private Scanner sc=new Scanner(System.in);
 	private DaoFactory daoFactory = new DaoFactoryJpa();
 	private ClientService clientService = new ClientService(daoFactory.getDaoClient());
+	private CompteService compteService = new CompteService(daoFactory.getDaoCompte(),daoFactory.getDaoClient());
 	private InitService initService= new InitService(daoFactory.getDaoClient());
+	
 	private List<IhmCommand> commands=Arrays.asList(
 			new ListeClientsCommand(clientService),
 			new ExitCommand(),
-			new OuvrirCompteCourrantCommand(),
+			new AjouterCompteCourantCommand(sc, clientService, compteService),
+			new OuvrirCompteCourrantCommand(sc, clientService),
+			new ModifierNomClientCommand(sc,clientService),
+			new RechercheClientParNomCommand(sc,clientService),
+			new RechercheClientParPrenomCommand(sc,clientService),
+			new SupprimerClientCommand(sc,clientService),
 			new InitCommand(initService));
-	
-	private Scanner sc;
-	
+		
 	public static void main(String[] args) {
 		ConsoleApp app=new ConsoleApp();
 		app.sortCommands();
-		app.menu();
+		
+		while(true)app.menu();
 	}
 
 	private void sortCommands() {
@@ -49,11 +57,10 @@ public class ConsoleApp {
 			System.out.println(ihmCommand.getInt()+" : "+ihmCommand.getLibelle());
 		}
 		System.out.println("Veuillez choisir une option");
-		this.sc=new Scanner(System.in);
+		Scanner sc=new Scanner(System.in);
 		int choix=sc.nextInt();
-		
 		commands.get(choix).execute();
+
 		
-		this.menu();
 	}
 }

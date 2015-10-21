@@ -1,0 +1,22 @@
+package bankonet.metier;
+
+import com.bankonet.Client;
+import com.bankonet.Compte;
+import com.bankonet.CompteCourant;
+
+import bankonet.dao.compte.CompteDao;
+
+public class CompteService {
+
+	private CompteDao daoCompte;
+
+	public CompteService(CompteDao daoCompte) {
+		this.daoCompte = daoCompte;
+		
+	}
+
+	public void ajouterCompteCourant(Client client, String numero, String intitule, Double solde,Double montantDecouvetAutorise) {
+		Compte compte=new CompteCourant(numero,intitule,solde,montantDecouvetAutorise);
+	}
+
+}

@@ -1,8 +1,17 @@
 package com.bankonet;
 
-public class CompteEpargne extends Compte{
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+import javax.persistence.Transient;
 
+@Entity
+@DiscriminatorValue("E")
+public class CompteEpargne extends Compte{
+	
+	@Column(name="tauxInteret")
 	private double tauxInteret;
+	@Transient
 	public static final double PLAFOND=12000d;
 	
 	public CompteEpargne() {

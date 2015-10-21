@@ -1,0 +1,41 @@
+package com.bankonet;
+
+@Entity
+@DiscriminatorValue("E")
+public class CompteEpargne extends Compte{
+	
+	@Column(name="tauxInteret")
+	private double tauxInteret;
+	@Transient
+	public static final double PLAFOND=12000d;
+	
+	public CompteEpargne() {
+	}
+	
+	public CompteEpargne(String numero, String intitule, double solde, double tauxInteret) {
+		super(numero,intitule,solde);
+		this.tauxInteret = tauxInteret;
+	}
+	
+	public String toString() {
+		String str=super.toString();
+		str+="; Plafond : "+PLAFOND+"; Taux intéret : "+this.tauxInteret;
+		return str;
+	}
+	
+	@Override
+	public double crediter(double montant) throws CreditException {
+		// TODO Auto-generated method stub
+		if(PLAFOND<this.getSolde()+montant){
+			throw new CreditException("Erreur, plafond dépassé. Solde max autorisé : "+PLAFOND);
+		}
+		return super.crediter(montant);
+	}
+
+	@Override
+	double debitMax() {
+		// TODO Auto-generated method stub
+		return this.getSolde();
+	}	
+
+}

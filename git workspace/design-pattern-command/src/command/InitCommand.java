@@ -18,7 +18,7 @@ public class InitCommand extends IhmCommand {
 
 	@Override
 	public String getLibelle() {
-		return "Intialise des clients avec JPA";
+		return "Intialiser la base de donnée";
 	}
 
 	@Override
