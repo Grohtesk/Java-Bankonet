@@ -1,9 +1,0 @@
-package command;
-
-public class RechercheClientCommand extends IhmCommand {
-
-	public RechercheClientCommand() {
-		// TODO Auto-generated constructor stub
-	}
-
-}

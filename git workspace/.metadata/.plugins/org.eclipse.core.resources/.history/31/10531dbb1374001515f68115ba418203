@@ -1,5 +1,0 @@
-package bankonet.metier;
-
-public interface ClientServiceInterface {
-
-}

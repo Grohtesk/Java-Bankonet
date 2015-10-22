@@ -1,5 +1,0 @@
-package bankonet.dao;
-
-public class DaoFactoryFile implements DaoFactory {
-
-}

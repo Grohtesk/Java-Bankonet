@@ -1,5 +1,0 @@
-package bankonet.dao;
-
-public interface DaoFactoryMySQL extends DaoFactory{
-
-}
