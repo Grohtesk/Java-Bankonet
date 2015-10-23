@@ -10,6 +10,7 @@ import com.bankonet.Compte;
 import com.bankonet.CompteCourant;
 
 import bankonet.dao.client.ClientDao;
+import bankonet.dao.compte.CompteDao;
 
 public class ClientService {
 	
@@ -24,7 +25,7 @@ public class ClientService {
 		Client client=new Client(identifiant,nom,prenom,password);
 		String compteIdentifiant="["+nom+"]_["+prenom+"]_COURANT_1";
 		Compte compte=new CompteCourant(compteIdentifiant, compteIdentifiant, 0, 0);
-		compte.setClientId(client);
+		compte.setClient(client);
 		client.addCompte(compte);
 		
 		this.daoClient.save(client);
@@ -82,6 +83,7 @@ public class ClientService {
 
 	public void ajouterCompteCourant(Client client, String numero, String intitule, Double solde,Double montantDecouvetAutorise) {
 		Compte compte=new CompteCourant(numero,intitule,solde,montantDecouvetAutorise);
+		compte.setClient(client);
 		client.addCompte(compte);
 		daoClient.save(client);
 	}

@@ -7,6 +7,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -25,10 +26,10 @@ import javax.persistence.Transient;
 })
 public class Client {
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	
-	@OneToMany(mappedBy="clientId",cascade = CascadeType.PERSIST)
+	@OneToMany(mappedBy="client",cascade = CascadeType.ALL)
 	private List<Compte> listeComptes;
 	
 	@Column(name="identifiant",length=25,unique=true)

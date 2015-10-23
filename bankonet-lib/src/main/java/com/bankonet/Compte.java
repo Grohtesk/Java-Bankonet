@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
@@ -19,12 +20,12 @@ import javax.persistence.Transient;
 public abstract class Compte implements CompteStat {
 	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	Integer id;
 	
 	@ManyToOne
 	@JoinColumn(name="id_client")
-	Client clientId;
+	Client client;
 	
 	@Column(name="numero",length=20)
 	private String numero;
@@ -115,10 +116,10 @@ public abstract class Compte implements CompteStat {
 
 	
 	public Client getClientId() {
-		return clientId;
+		return client;
 	}
 
-	public void setClientId(Client clientId) {
-		this.clientId = clientId;
+	public void setClient(Client client) {
+		this.client = client;
 	}
 }

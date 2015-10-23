@@ -1,5 +1,6 @@
 package bankonet.dao.client;
 
+import java.util.Iterator;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -8,6 +9,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.NoResultException;
 
 import com.bankonet.Client;
+import com.bankonet.Compte;
 
 public class ClientDaoJpa implements ClientDao {
 	
@@ -24,6 +26,9 @@ public class ClientDaoJpa implements ClientDao {
 		client =em.createNamedQuery("Client.getClientByLogin",Client.class)
 			.setParameter("identifiant", identifiant)
 			.getSingleResult();
+		
+		Iterator<Compte> iterator = client.getListeComptes().iterator();
+		if(iterator.hasNext()) iterator.next();
 		em.close();
 		return client;
 	}

@@ -39,7 +39,6 @@ public class ConsoleApp {
 
 	private void sortCommands() {
 		Collections.sort(commands, new Comparator<IhmCommand>() {
-	        @Override
 	        public int compare(IhmCommand cmd1, IhmCommand cmd2)
 	        {
 	        	return (cmd1.getInt() > cmd2.getInt()) ? 1 : -1;
